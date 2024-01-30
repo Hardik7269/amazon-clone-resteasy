@@ -1,6 +1,6 @@
 package com.axelor.entity;
 
-import java.util.Set;
+import java.util.*;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -17,7 +17,7 @@ public class CartEntity {
 	int CartNo;
 	
 	@OneToMany(cascade = CascadeType.ALL , mappedBy = "cart")
-	Set<ProductEntity> products;
+	List<ProductEntity> products = new ArrayList<ProductEntity>();
 	
 	
 
@@ -29,12 +29,24 @@ public class CartEntity {
 		CartNo = cartNo;
 	}
 
-	public Set<ProductEntity> getProducts() {
+	public List<ProductEntity> getProducts() {
 		return products;
 	}
 
-	public void setProducts(Set<ProductEntity> products) {
+	public void setProducts(List<ProductEntity> products) {
 		this.products = products;
+	}
+	
+	public void addProductItem(ProductEntity product) {
+//		getProducts().add(product);
+		List<ProductEntity> list = new ArrayList<>(this.getProducts());
+		list.add(product);
+		product.setCart(this);
+	}
+	
+	public void removeProductItem(ProductEntity product) {
+		getProducts().remove(product);
+		product.setCart(null);
 	}
 	
 }
