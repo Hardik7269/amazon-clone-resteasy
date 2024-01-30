@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import com.google.inject.Inject;
 
@@ -21,11 +22,17 @@ public class ProductEntity {
 	int pPrice;
 	@Column
 	int pQuantity;
-	
-	
-	
 
+	@ManyToOne
+	CartEntity cart;
 	
+	
+	public CartEntity getCart() {
+		return cart;
+	}
+	public void setCart(CartEntity cart) {
+		this.cart = cart;
+	}
 	public int getpId() {
 		return pId;
 	}
@@ -56,5 +63,7 @@ public class ProductEntity {
 	}
 	
 	
-	
+	public void addCart(CartEntity cart) {
+		this.setCart(cart);
+	}
 }

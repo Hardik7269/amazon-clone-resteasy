@@ -23,8 +23,6 @@ public class RestGuiceListner extends GuiceResteasyBootstrapServletContextListen
 	@Override
 	protected void withInjector(Injector injector) {
 		injector.getInstance(PersistService.class).start();
-	}
-
-	
+	}	
 		
 }

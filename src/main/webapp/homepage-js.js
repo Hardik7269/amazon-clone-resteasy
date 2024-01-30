@@ -18,14 +18,9 @@ function product1(){
     pName = removeWhitespace(pName);
     pPrice = removeWhitespace(pPrice);
 	let price = convertPrice(pPrice);
-    
-    
-    //console.log(typeof(price));
-    //console.log(price);
  
    const url = "http://localhost:8080/RestProject02/p/addToCart?name="+pName+"&price="+price+"&quantity="+q;
-   // const url = "http://localhost:8080/RestProject02/p/r";
-
+   
 	window.open(url);       
 }
 
@@ -42,7 +37,6 @@ function product2(){
      console.log(pName);
  
    const url = "http://localhost:8080/RestProject02/p/addToCart?name="+pName+"&price="+price+"&quantity="+q;
-       // const url = "http://localhost:8080/RestProject02/p/r";
 
 	window.open(url);  
 }
@@ -60,8 +54,7 @@ function product3(){
 	let price = convertPrice(pPrice);
      console.log(pName);
  
-    //const url = "http://localhost:8080/RestProject02/addToCart?name="+pName+"&price="+price+"&quantity="+q;
-        const url = "http://localhost:8080/RestProject02/p/r";
+    const url = "http://localhost:8080/RestProject02/addToCart?name="+pName+"&price="+price+"&quantity="+q;
 
 	window.open(url); 
 	
