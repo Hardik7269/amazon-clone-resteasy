@@ -1,7 +1,7 @@
 package com.axelor.service;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+
 
 import javax.persistence.EntityManager;
 
@@ -28,7 +28,7 @@ public class ProductDetailImpl implements ProductDetail{
 		
 		CartEntity cart = new CartEntity();
 
-		Set<ProductEntity> products = new HashSet<ProductEntity>();
+		List<ProductEntity> products = new ArrayList<ProductEntity>();
 
 		p1.setpName(pName);
 		p1.setpPrice(pPrice);
@@ -42,13 +42,18 @@ public class ProductDetailImpl implements ProductDetail{
 		
 		products.add(p2);
 		products.add(p1);
-		
+		System.out.println("4");
 		p1.addCart(cart);
 		p2.addCart(cart);
 		
-		cart.setProducts(products);
+	cart.addProductItem(p2);
+	cart.addProductItem(p1);
+	
+
 		
-		em.merge(cart);
+		em.persist(cart);
+		em.persist(p2);
+		em.persist(p1);
 	}
 
 }

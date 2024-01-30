@@ -62,7 +62,6 @@ public class ProductEntity {
 		this.pQuantity = pQuantity;
 	}
 	
-	
 	public void addCart(CartEntity cart) {
 		this.setCart(cart);
 	}
