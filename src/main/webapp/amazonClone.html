@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="homePage.css">
+    <script src="homepage-js.js"></script>
+    <script src="checkout-js.js"></script>
+
+</head>
+<body>
+
+    <header>
+        <div class="navbar pointer">
+            <div class="nav-logo border">
+                <div class="logo"></div>
+    
+            </div>
+    
+            <div class="new-add border border">
+                <p class ="add-first">Diliver to</p>
+                <div class="add-icon">
+                    <i class="fa-solid fa-location-dot"></i>                    
+                    <p class="add-second">India</p>
+                </div>
+            </div>
+
+            <div class="nav-search border">
+                <select class="search-select">
+                    <option>All</option>
+                </select>
+                <input placeholder="Search Amazon" class="search-input">
+                <div class="search-logo">
+                    <button class="search-butt">
+                        <i class="fa-solid fa-magnifying-glass"></i> 
+                    </button>             
+                </div>
+            </div>
+
+            <div class="signin-info border">
+                <pre class="signin">  Hello, sign in</pre>
+                <div class="acc-list">
+                    <select class="nav-second">
+                        <option>Account & Lists</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="return-info border">
+                <pre class="signin">Returns</pre>
+                <div class="nav-second">
+                    & Orders
+                </div>
+            </div>
+            
+            <div class="cart-link header-link border">
+                <div class="cart-icon">
+                  <a href="checkout.html">
+                    <img class="cart-icon" src="Images\cart-icon.png">
+                  </a>
+                    <div class="cart-quantity">
+                    <p class="cart-quantity-num">0</p>
+                    </div>
+                </div>
+                <div class="cart-text">Cart</div>
+            </div>
+        </div> 
+        <div class="pannel">
+            <div class="all-pannel">
+                <i class="fa-solid fa-list"></i>
+                All
+            </div>
+            <div class="today-deal pannel-ele">Today's Deals</div>
+            <div class="customer-serv pannel-ele">Customer Service</div>
+            <div class="registory pannel-ele">Registry</div>
+            <div class="giftcard pannel-ele">Gift Cards</div>
+            <div class="sell pannel-ele">Sell</div>
+        </div>
+    </header>
+
+    <div class="hero-section">
+        <div class="hero-message">
+            <p>
+                You are on amazon.com. You can also snop on Amazon India for millions of products with fast local delivery. <a href="#" onclick="checkk" class="chek" >Click here to go to Amazon India</a>
+            </p>
+        </div>
+        <div class="shop-box">
+            <div class="box1 box">
+                <div class="box-content">
+                    <h2>Gaming PC</h2>
+                    <div >
+                        <img class="box1-image" src="Images\box1_image.jpg" alt="not">
+                    </div>
+                    <a href="">See more</a>
+                </div>
+            </div>
+            <div class="box2 box">
+                <div class="box-content">
+                    <div class="product-image-container">
+                        <img class="product-image"
+                          src="Images\box2_image.jpg">
+                      </div>
+            
+                      <div class="product-name limit-text-to-2-lines samsungMobile">
+                        Samsung Galaxy S23 Ultra 5G (12GB, 512GB Storage)
+                      </div>
+            
+                      <div class="product-rating-container">
+                        <img class="product-rating-stars"
+                          src="Images\rating-45.png">
+                        <div class="product-rating-count link-primary">
+                          1024
+                        </div>
+                      </div>
+            
+                      <div class="product-price p1Price">
+                       ₹1,40,000
+                      </div>
+            
+                      <div class="product-quantity-container">
+                        <select class="quantity1" onchange="cartQuantity()">
+                          <option selected value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                        </select>
+                      </div>
+            
+                      <div class="product-spacer"></div>
+            
+                      <div class="added-to-cart">
+                        Added
+                      </div>
+            
+                      <button class="add-to-cart-button button-primary" onclick="product1()">
+                        Add to Cart
+                      </button>
+                </div>
+            </div>
+            <div class="box3 box">
+                <div class="box-content">
+                    <div class="product-image-container">
+                        <img class="product-image"
+                          src="Images\box3_image.jpg">
+                      </div>
+            
+                      <div class="product-name limit-text-to-2-lines lgTv">
+                        LG 49" Curved Ultragear™ Dual QHD Gaming Monitor
+                      </div>
+            
+                      <div class="product-rating-container">
+                        <img class="product-rating-stars"
+                          src="Images\rating-40.png">
+                        <div class="product-rating-count link-primary">
+                          856
+                        </div>
+                      </div>
+            
+                      <div class="product-price p2Price">
+                        ₹ 90,000
+                      </div>
+            
+                      <div class="product-quantity-container">
+                        <select class="quantity2" onchange="cartQuantity()">
+                          <option selected value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                        </select>
+                      </div>
+            
+                      <div class="product-spacer"></div>
+            
+                      <div class="added-to-cart">
+                       
+                        Added
+                      </div>
+            
+                      <button class="add-to-cart-button button-primary" onclick="product2()">
+                        Add to Cart
+                      </button>
+                </div>
+            </div>
+            <div class="box4 box">
+                <div class="box-content">
+                    <div class="product-image-container">
+                        <img class="product-image"
+                          src="Images\box4_image.jpg">
+                      </div>
+            
+                      <div class="product-name limit-text-to-2-lines iphoneMobile">
+                        Apple iPhone 14 Pro Max (256 GB) - Deep Purple
+                      </div>
+            
+                      <div class="product-rating-container">
+                        <img class="product-rating-stars"
+                          src="Images\rating-45.png">
+                        <div class="product-rating-count link-primary">
+                          694
+                        </div>
+                      </div>
+            
+                      <div class="product-price p3Price">
+                        ₹1,43,990
+                      </div>
+            
+                      <div class="product-quantity-container">
+                        <select class="quantity3" onchange="cartQuantity()">
+                          <option selected value="0">0</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                        </select>
+                      </div>
+            
+                      <div class="product-spacer"></div>
+            
+                      <div class="added-to-cart" onclick="product3()">
+                        Added
+                      </div>
+            
+                      <button class="add-to-cart-button button-primary" onclick="product3()">
+                        Add to Cart
+                      </button>
+
+                      
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
