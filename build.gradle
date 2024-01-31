@@ -1,11 +1,11 @@
 apply plugin:'java'
 apply plugin:'application'
 apply plugin:'war'
-apply plugin:'java-library'
 
 repositories{
 	mavenCentral()
 }
+
 dependencies {
 	// https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jaxrs
     implementation group: 'org.jboss.resteasy', name: 'resteasy-jaxrs', version: '3.0.13.Final'
@@ -34,6 +34,6 @@ dependencies {
     implementation group: 'javax.persistence', name: 'javax.persistence-api', version: '2.2'
     
     // https://mvnrepository.com/artifact/com.google.inject.extensions/guice-persist
-implementation 'com.google.inject.extensions:guice-persist:4.2.2'
+	implementation 'com.google.inject.extensions:guice-persist:4.2.2'
     
 } 

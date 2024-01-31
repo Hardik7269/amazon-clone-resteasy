@@ -20,7 +20,6 @@ public class CartEntity {
 	List<ProductEntity> products = new ArrayList<ProductEntity>();
 	
 	
-
 	public int getCartNo() {
 		return CartNo;
 	}
@@ -38,9 +37,7 @@ public class CartEntity {
 	}
 	
 	public void addProductItem(ProductEntity product) {
-//		getProducts().add(product);
-		List<ProductEntity> list = new ArrayList<>(this.getProducts());
-		list.add(product);
+		getProducts().add(product);
 		product.setCart(this);
 	}
 	

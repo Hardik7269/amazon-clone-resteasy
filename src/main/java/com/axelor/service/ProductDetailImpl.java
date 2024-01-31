@@ -6,6 +6,7 @@ import java.util.*;
 import javax.persistence.EntityManager;
 
 import com.axelor.entity.CartEntity;
+import com.axelor.entity.ProductCatagory;
 import com.axelor.entity.ProductEntity;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -20,37 +21,93 @@ public class ProductDetailImpl implements ProductDetail{
 	public void addToCartt(String pName, int pPrice, int pQuentity) {
 		
 		EntityManager em = emProvider.get();		
+		System.out.println("01");
 
 		ProductEntity p1 = new ProductEntity();
 		ProductEntity p2 = new ProductEntity();
+		ProductCatagory catagory1 = new ProductCatagory();
+		ProductCatagory catagory2 = new ProductCatagory();
+//		ProductCatagory catagory3 = new ProductCatagory();
 		
+		System.out.println("02");
 		
 		CartEntity cart = new CartEntity();
 
-		List<ProductEntity> products = new ArrayList<ProductEntity>();
+//		Set<ProductEntity> products = new HashSet<ProductEntity>();
+//		Set<ProductCatagory> catAll = new HashSet<ProductCatagory>();
+		
+		System.out.println("03");
+		
+		
+		catagory1.setComputersAccessories(pName);
+		catagory1.setElectronicDevicse(pName);
+		catagory2.setMobilePhones(pName);
+		catagory2.setElectronicDevicse(pName);
+		
+		System.out.println("04");
 
 		p1.setpName(pName);
 		p1.setpPrice(pPrice);
+	
+		System.out.println("05");
 
 		p1.setpQuantity(pQuentity);
 
+		System.out.println("06");
 		
 		p2.setpName(pName+"second");
 		p2.setpPrice(pPrice+1000);
 		p2.setpQuantity(pQuentity+2);
 		
-		products.add(p2);
-		products.add(p1);
-
-		p1.addCart(cart);
-		p2.addCart(cart);
+		System.out.println("07");
 		
+//		catAll.add(catagory2);
+//		catAll.add(catagory1);
+		
+		System.out.println("08");
+		
+		catagory1.addProductItems(p1);
+		catagory1.addProductItems(p2);
+		catagory2.addProductItems(p2);
+		
+		System.out.println("09");
+		
+		
+//		p1.setProductCatagories(catAll);
+//		p2.setProductCatagories(catAll);
+		
+		System.out.println("104");
+		
+		//sync product to catagory
+//		p1.addProductCatagory(catagory2);
+//		p1.addProductCatagory(catagory1);
+//		p2.addProductCatagory(catagory2);
+		
+//		products.add(p2);
+//		products.add(p1);
+
+		
+//		p1.addCart(cart);
+//		p2.addCart(cart);
+
+		
+	//sync from cart to product
 	cart.addProductItem(p2);
 	cart.addProductItem(p1);
 	
-		em.persist(cart);
+	System.out.println("14");
+	
+		
+		System.out.println("141");
 //		em.persist(p2);
 //		em.persist(p1);
+		System.out.println("done");
+//		em.persist(catagory1);
+		System.out.println("11");
+//		em.persist(catagory2);
+		em.persist(cart);
+		System.out.println("20");
+		
 	}
 
 	@Override

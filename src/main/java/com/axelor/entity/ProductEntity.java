@@ -1,11 +1,14 @@
 package com.axelor.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import java.util.*;
 
 import com.google.inject.Inject;
 
@@ -25,6 +28,16 @@ public class ProductEntity {
 
 	@ManyToOne
 	CartEntity cart;
+	
+	@ManyToMany(cascade = CascadeType.PERSIST)
+	Set<ProductCatagory> productCatagories = new HashSet<ProductCatagory>();
+	
+	public Set<ProductCatagory> getProductCatagories() {
+		return productCatagories;
+	}
+	public void setProductCatagories(Set<ProductCatagory> productCatagories) {
+		this.productCatagories = productCatagories;
+	}
 	
 	
 	public CartEntity getCart() {
@@ -60,9 +73,5 @@ public class ProductEntity {
 
 	public void setpQuantity(int pQuantity) {
 		this.pQuantity = pQuantity;
-	}
-	
-	public void addCart(CartEntity cart) {
-		this.setCart(cart);
 	}
 }
