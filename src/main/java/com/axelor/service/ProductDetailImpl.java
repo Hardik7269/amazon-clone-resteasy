@@ -19,6 +19,7 @@ public class ProductDetailImpl implements ProductDetail{
 	@Transactional(rollbackOn = Exception.class)
 	public void addToCartt(String pName, int pPrice, int pQuentity) {
 		
+		System.out.println("02");
 		EntityManager em = emProvider.get();		
 
 		ProductEntity p1 = new ProductEntity();
