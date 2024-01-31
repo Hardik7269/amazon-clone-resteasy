@@ -13,7 +13,7 @@ import com.google.inject.Inject;
 public class ProductEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int pId;
 	@Column
 	String pName;

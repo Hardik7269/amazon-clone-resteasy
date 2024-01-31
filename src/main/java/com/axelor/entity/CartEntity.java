@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 public class CartEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int CartNo;
 	
 	@OneToMany(cascade = CascadeType.ALL , mappedBy = "cart")

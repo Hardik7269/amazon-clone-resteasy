@@ -1,3 +1,27 @@
+function upPrItems() {
+    let pName = removeWhitespace(prompt("Enter New Product Name:", ""));
+    let pPrice = parseFloat(prompt("Updated Price:", ""));
+    const pid = parseInt(prompt("Enter Pid:", ""));
+    let q = parseInt(prompt("Updated Quantity:", ""));
+    console.log(pName + "-" + pPrice + "-" + pid + "-" + q);
+	console.log("");
+    const url = "http://localhost:8080/RestProject02/p/updateData?id="+pid+"&name="+pName+"&price="+pPrice+"&quantity="+q;
+    console.log(url);
+    window.open(url);
+ 
+}
+
+function removeProduct(){
+	const pid = parseInt(prompt("Enter Pid to delete:", ""));
+	const url = "http://localhost:8080/RestProject02/p/removeProduct?id="+pid;
+	console.log(url);
+	window.open(url);
+}
+
+
+
+
+
 function cartQuantity(){
     let q1 = JSON.parse (document.querySelector('.quantity1').value);
     let q2 = JSON.parse ( document.querySelector('.quantity2').value);
@@ -26,7 +50,7 @@ function product1(){
 
 function product2(){
 	
-	let pName = document.querySelector('.iphoneMobile').innerHTML;
+	let pName = document.querySelector('.lgTv').innerHTML;
 	let pPrice =document.querySelector('.p2Price').innerHTML;
     let q = JSON.parse (document.querySelector('.quantity2').value);
     
@@ -34,7 +58,6 @@ function product2(){
     pName = removeWhitespace(pName);
     pPrice = removeWhitespace(pPrice);
 	let price = convertPrice(pPrice);
-     console.log(pName);
  
    const url = "http://localhost:8080/RestProject02/p/addToCart?name="+pName+"&price="+price+"&quantity="+q;
 
@@ -44,7 +67,7 @@ function product2(){
 
 function product3(){
 	
-	let pName = document.querySelector('.lgTv').innerHTML;
+	let pName = document.querySelector('.iphoneMobile').innerHTML;
 	let pPrice =document.querySelector('.p3Price').innerHTML;
     let q = JSON.parse (document.querySelector('.quantity3').value);
     
@@ -52,13 +75,14 @@ function product3(){
     pName = removeWhitespace(pName);
     pPrice = removeWhitespace(pPrice);
 	let price = convertPrice(pPrice);
-     console.log(pName);
  
     const url = "http://localhost:8080/RestProject02/addToCart?name="+pName+"&price="+price+"&quantity="+q;
 
 	window.open(url); 
 	
 }
+
+
 
 
 function removeWhitespace(str) {

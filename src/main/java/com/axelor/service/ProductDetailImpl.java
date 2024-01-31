@@ -19,9 +19,8 @@ public class ProductDetailImpl implements ProductDetail{
 	@Transactional(rollbackOn = Exception.class)
 	public void addToCartt(String pName, int pPrice, int pQuentity) {
 		
-		System.out.println("02");
 		EntityManager em = emProvider.get();		
-		System.out.println("03");
+
 		ProductEntity p1 = new ProductEntity();
 		ProductEntity p2 = new ProductEntity();
 		
@@ -42,18 +41,53 @@ public class ProductDetailImpl implements ProductDetail{
 		
 		products.add(p2);
 		products.add(p1);
-		System.out.println("4");
+
 		p1.addCart(cart);
 		p2.addCart(cart);
 		
 	cart.addProductItem(p2);
 	cart.addProductItem(p1);
 	
+		em.persist(cart);
+//		em.persist(p2);
+//		em.persist(p1);
+	}
+
+	@Override
+	@Transactional(rollbackOn = Exception.class)
+	public void updateCartItem(int pId, String pName, int pPrice, int pQuentity) {
+		EntityManager em = emProvider.get();
+		
+		ProductEntity pe = em.find(ProductEntity.class, pId);
+		pe.setpName(pName+" -> Updated Name");
+		pe.setpPrice(pPrice);
+		pe.setpQuantity(pQuentity);
+		
+		em.persist(pe);
+		System.out.println("all done");
+		
+	}
+
+	@Override
+	@Transactional(rollbackOn = Exception.class)
+	public void removeProductItem(int pId) {
+		System.out.println("entered in remove product");
+		EntityManager em = emProvider.get();
+		
+		ProductEntity pe = em.find(ProductEntity.class, pId);
+		CartEntity ce = new CartEntity();
+		ce.removeProductItem(pe);
+		em.remove(pe);
 
 		
-		em.persist(cart);
-		em.persist(p2);
-		em.persist(p1);
 	}
+
+	@Override
+	public void removeCart(int cId) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 
 }

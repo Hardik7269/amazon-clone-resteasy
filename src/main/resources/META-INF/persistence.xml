@@ -23,7 +23,7 @@
                  Drop and re-create the database schema on startup 
                 
         -->
-        <property name="hibernate.hbm2ddl.auto" value="create"/>
+        <property name="hibernate.hbm2ddl.auto" value="update"/>
         
      </properties>
       
