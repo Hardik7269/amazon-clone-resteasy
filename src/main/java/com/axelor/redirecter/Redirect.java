@@ -21,29 +21,23 @@ public class Redirect {
 		return Response.ok().entity("ok").build();	
 	}
 	
-	@POST
+	@GET
 	@Path("/addToCart")
 	public Response addToCart(@QueryParam("name") String pName, @QueryParam("price") int pPrice, @QueryParam("quantity") int pQuantity) {
-		
-		System.out.println("01");
-		product.addToCartt(pName, pPrice, pQuantity);
-		
+		product.addToCart(pName, pPrice, pQuantity);
 		return Response.ok().entity("Item Added Sucessfully to Databse Thank you").build();
 	}
 	
-	@POST
+	@GET
 	@Path("/updateData")
 	public Response updateCartData(@QueryParam("id") int pid,@QueryParam("name") String pName, @QueryParam("price") int pPrice, @QueryParam("quantity") int pQuantity) {
-		System.out.println("hitting method");
 		product.updateCartItem(pid, pName, pPrice, pQuantity);
-		
 		return Response.ok().entity("Item of id : "+pid+ " is Updated Accordingly").build();
 	}
 	
-	@POST
+	@GET
 	@Path("/removeProduct")
 	public Response removeProduct(@QueryParam("id") int pId) {
-		System.out.println("hitting method");
 		product.removeProductItem(pId);
 		return Response.ok().entity("Removed id : " + pId).build();
 	}

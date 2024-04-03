@@ -1,49 +1,42 @@
 package com.axelor.entity;
 
-import java.util.*;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class CartEntity {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int CartNo;
-	
-	@OneToMany(cascade = CascadeType.ALL , mappedBy = "cart")
-	List<ProductEntity> products = new ArrayList<ProductEntity>();
-	
-	
-	public int getCartNo() {
-		return CartNo;
-	}
 
-	public void setCartNo(int cartNo) {
-		CartNo = cartNo;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int cartNo;
 
-	public List<ProductEntity> getProducts() {
-		return products;
-	}
+    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+    private List<ProductEntity> products = new ArrayList<>();
 
-	public void setProducts(List<ProductEntity> products) {
-		this.products = products;
-	}
-	
-	public void addProductItem(ProductEntity product) {
-		getProducts().add(product);
-		product.setCart(this);
-	}
-	
-	public void removeProductItem(ProductEntity product) {
-		getProducts().remove(product);
-		product.setCart(null);
-	}
-	
+    public int getCartNo() {
+        return cartNo;
+    }
+
+    public void setCartNo(int cartNo) {
+        this.cartNo = cartNo;
+    }
+
+    public List<ProductEntity> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<ProductEntity> products) {
+        this.products = products;
+    }
+
+    public void addProduct(ProductEntity product) {
+        products.add(product);
+        product.setCart(this);
+    }
+
+    public void removeProduct(ProductEntity product) {
+        products.remove(product);
+        product.setCart(null);
+    }
 }

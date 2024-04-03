@@ -12,8 +12,8 @@
 
       <properties>
         <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-        <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/amazon"/>
-        <property name="hibernate.connection.username" value="axelor"/>
+        <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5433/amazon"/>
+        <property name="hibernate.connection.username" value="postgres"/>
         <property name="hibernate.connection.password" value="axelor"/>
         <!-- Specify dialect for PostgreSQL -->
         <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>

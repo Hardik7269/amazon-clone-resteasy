@@ -32,58 +32,22 @@ function cartQuantity(){
     document.querySelector('.cart-quantity-num').innerHTML = `${total}`;
 }
 
+function addToCart(event) {
+    let box = event.target.closest('.box-content');
+    if (!box) return;
 
-function product1(){
-	let pName = document.querySelector('.samsungMobile').innerHTML;
-	let pPrice =document.querySelector('.p1Price').innerHTML;
-    let q = JSON.parse (document.querySelector('.quantity1').value);
-    
-    
+    let pName = box.querySelector('.product-name').innerHTML;
+    let pPrice = box.querySelector('.product-price').innerHTML;
+    let q = JSON.parse(box.querySelector('.product-quantity-container select').value);
+
     pName = removeWhitespace(pName);
     pPrice = removeWhitespace(pPrice);
-	let price = convertPrice(pPrice);
- 
-   const url = "http://localhost:8080/RestProject02/p/addToCart?name="+pName+"&price="+price+"&quantity="+q;
-   
-	window.open(url);       
+    let price = convertPrice(pPrice);
+
+    const url = "http://localhost:8080/RestProject02/p/addToCart?name=" + pName + "&price=" + price + "&quantity=" + q;
+
+    window.open(url);
 }
-
-function product2(){
-	
-	let pName = document.querySelector('.lgTv').innerHTML;
-	let pPrice =document.querySelector('.p2Price').innerHTML;
-    let q = JSON.parse (document.querySelector('.quantity2').value);
-    
-    
-    pName = removeWhitespace(pName);
-    pPrice = removeWhitespace(pPrice);
-	let price = convertPrice(pPrice);
- 
-   const url = "http://localhost:8080/RestProject02/p/addToCart?name="+pName+"&price="+price+"&quantity="+q;
-
-	window.open(url);  
-}
-
-
-function product3(){
-	
-	let pName = document.querySelector('.iphoneMobile').innerHTML;
-	let pPrice =document.querySelector('.p3Price').innerHTML;
-    let q = JSON.parse (document.querySelector('.quantity3').value);
-    
-    
-    pName = removeWhitespace(pName);
-    pPrice = removeWhitespace(pPrice);
-	let price = convertPrice(pPrice);
- 
-    const url = "http://localhost:8080/RestProject02/addToCart?name="+pName+"&price="+price+"&quantity="+q;
-
-	window.open(url); 
-	
-}
-
-
-
 
 function removeWhitespace(str) {
   return str.split(' ').filter(Boolean).join('');
