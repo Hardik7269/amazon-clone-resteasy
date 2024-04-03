@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 public class CartEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	int CartNo;
 	
 	@OneToMany(cascade = CascadeType.ALL , mappedBy = "cart")
@@ -41,7 +41,23 @@ public class CartEntity {
 		product.setCart(this);
 	}
 	
+	
+	
 	public void removeProductItem(ProductEntity product) {
+		System.out.println("001");
+//		if(getProducts().size() == 0) {
+//			System.out.println("Empty Cart");
+//			return ;
+//		}
+//		System.out.println("002");
+//		//handeling the category's from the product
+//		Set<ProductCatagory> pc = product.getProductCatagories();
+//		System.out.println("003");
+//		for(ProductCatagory oneCategory : pc) {
+//			System.out.println("000");
+//			product.removeProductCatagorySet(oneCategory);
+//		}
+//		System.out.println("004");
 		getProducts().remove(product);
 		product.setCart(null);
 	}

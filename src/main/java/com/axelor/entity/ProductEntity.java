@@ -16,7 +16,7 @@ import com.google.inject.Inject;
 public class ProductEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	int pId;
 	@Column
 	String pName;
@@ -29,7 +29,7 @@ public class ProductEntity {
 	@ManyToOne
 	CartEntity cart;
 	
-	@ManyToMany(cascade = CascadeType.PERSIST)
+	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "productEntitys")
 	Set<ProductCatagory> productCatagories = new HashSet<ProductCatagory>();
 	
 	public Set<ProductCatagory> getProductCatagories() {
@@ -74,4 +74,26 @@ public class ProductEntity {
 	public void setpQuantity(int pQuantity) {
 		this.pQuantity = pQuantity;
 	}
+	
+	//sync
+	public void addProductCatagorySet(ProductCatagory categoty) {
+		getProductCatagories().add(categoty);
+		
+		categoty.getProductEntity().add(this);
+	}
+	
+	public void removeProductCatagorySet(ProductCatagory category) {
+		System.out.println("0001");
+		
+		if(category != null) {
+			System.out.println("0002.1");
+
+			getProductCatagories().remove(category);
+			category.getProductEntity().remove(this);
+		}
+		System.out.println("0002");
+	}
+	
+
+	
 }

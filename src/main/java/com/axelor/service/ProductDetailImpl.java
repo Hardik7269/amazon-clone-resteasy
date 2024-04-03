@@ -32,17 +32,16 @@ public class ProductDetailImpl implements ProductDetail{
 		System.out.println("02");
 		
 		CartEntity cart = new CartEntity();
-
-//		Set<ProductEntity> products = new HashSet<ProductEntity>();
-//		Set<ProductCatagory> catAll = new HashSet<ProductCatagory>();
 		
 		System.out.println("03");
 		
 		
 		catagory1.setComputersAccessories(pName);
 		catagory1.setElectronicDevicse(pName);
-		catagory2.setMobilePhones(pName);
-		catagory2.setElectronicDevicse(pName);
+		catagory1.setMobilePhones(pName);
+		catagory2.setMobilePhones(pName+" another");
+		catagory2.setElectronicDevicse(pName + " another");
+		catagory2.setComputersAccessories(pName + " another");
 		
 		System.out.println("04");
 
@@ -55,7 +54,7 @@ public class ProductDetailImpl implements ProductDetail{
 
 		System.out.println("06");
 		
-		p2.setpName(pName+"second");
+		p2.setpName(pName+" another");
 		p2.setpPrice(pPrice+1000);
 		p2.setpQuantity(pQuentity+2);
 		
@@ -69,6 +68,7 @@ public class ProductDetailImpl implements ProductDetail{
 		catagory1.addProductItems(p1);
 		catagory1.addProductItems(p2);
 		catagory2.addProductItems(p2);
+		catagory2.addProductItems(p1);
 		
 		System.out.println("09");
 		
@@ -86,9 +86,7 @@ public class ProductDetailImpl implements ProductDetail{
 //		products.add(p2);
 //		products.add(p1);
 
-		
-//		p1.addCart(cart);
-//		p2.addCart(cart);
+
 
 		
 	//sync from cart to product
@@ -133,18 +131,37 @@ public class ProductDetailImpl implements ProductDetail{
 		
 		ProductEntity pe = em.find(ProductEntity.class, pId);
 		CartEntity ce = new CartEntity();
+
 		ce.removeProductItem(pe);
 		em.remove(pe);
+		System.out.println("here till");
 
 		
 	}
 
 	@Override
 	public void removeCart(int cId) {
-		// TODO Auto-generated method stub
 		
+		CartEntity ce = emProvider.get().find(CartEntity.class, cId);	
+		
+		List<ProductEntity> peList=  ce.getProducts();
+		
+		for(ProductEntity pe : peList) {
+			System.out.println("00");
+			ce.removeProductItem(pe);
+		}		
+		
+		/*System.out.println("01");
+		//getting the product entity of the associate particular cart id		
+		System.out.println("02");
+		System.out.println("03");
+		if(ce != null) {
+			List<ProductEntity> list = ce.getProducts();			
+			for (ProductEntity product : list) {
+				product.getCart().removeProductItem(product);
+			}
+		}
+		System.out.println("04");*/
 	}
-	
-	
 
 }

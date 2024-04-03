@@ -121,7 +121,7 @@
                       </div>
             
                       <div class="product-quantity-container">
-                        <select class="quantity1" onchange="cartQuantity()">
+                        <select class="quantity1" onchange="cartQuantity()" id="cart.quantity1">
                           <option selected value="0">0</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -167,7 +167,7 @@
                       </div>
             
                       <div class="product-quantity-container">
-                        <select class="quantity2" onchange="cartQuantity()">
+                        <select class="quantity2" onchange="cartQuantity()" id="cart.quantity2">
                           <option selected value="0">0</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -213,7 +213,7 @@
                       </div>
             
                       <div class="product-quantity-container">
-                        <select class="quantity3" onchange="cartQuantity()">
+                        <select class="quantity3" onchange="cartQuantity()" id="cart.quantity3">
                           <option selected value="0">0</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
@@ -242,6 +242,10 @@
                       </button><br>
 		              <button class="add-to-cart-button button-primary updateP3" onclick="upPrItems()">
 		                       	Update Item
+		              </button>
+		              
+		              <button class="add-to-cart-button button-primary updateP3" onclick="removeCart()">
+		                       Remove Cart
 		              </button>
 	            </div>
             </div>

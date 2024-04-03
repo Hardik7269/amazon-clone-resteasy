@@ -17,7 +17,6 @@ public class RestGuiceListner extends GuiceResteasyBootstrapServletContextListen
 
 	@Override
 	protected List<Module> getModules(ServletContext context) {
-
 		return Arrays.asList(new GuiceModules(), new JpaPersistModule("RestEasy_Jpa"));
 	}
 	@Override

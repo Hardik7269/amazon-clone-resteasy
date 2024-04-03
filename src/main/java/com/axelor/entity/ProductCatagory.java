@@ -15,7 +15,7 @@ import javax.persistence.ManyToMany;
 public class ProductCatagory {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int catId;
 	
 	@Column
@@ -26,7 +26,7 @@ public class ProductCatagory {
 	private String mobilePhones;
 	
 	
-	@ManyToMany(mappedBy = "productCatagories")
+	@ManyToMany
 	Set<ProductEntity> productEntitys = new HashSet<ProductEntity>();
 	
 	
@@ -71,8 +71,15 @@ public class ProductCatagory {
 	}
 	
 	public void removeProductItem(ProductEntity productEntity) {
+		if(productEntity.getProductCatagories() == null) {
+			System.out.println("your cart is empty");
+			return;
+		}
 		getProductEntity().remove(productEntity);
 		productEntity.getProductCatagories().remove(this);
 	}
+	
+	  
+
 	
 }
