@@ -1,6 +1,5 @@
 package com.axelor.guiceModule;
 
-import com.axelor.entity.ProductEntity;
 import com.axelor.redirecter.Redirect;
 import com.axelor.service.ProductDetail;
 import com.axelor.service.ProductDetailImpl;

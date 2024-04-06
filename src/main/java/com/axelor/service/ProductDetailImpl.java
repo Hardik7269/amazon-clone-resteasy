@@ -46,7 +46,7 @@ public class ProductDetailImpl implements ProductDetail {
         cart.addProduct(product);
 
         em.persist(product);
-        em.persist(category);
+        em.persist(category);	
         em.persist(cart);
     }
 

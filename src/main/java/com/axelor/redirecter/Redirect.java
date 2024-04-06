@@ -25,7 +25,7 @@ public class Redirect {
 	@Path("/addToCart")
 	public Response addToCart(@QueryParam("name") String pName, @QueryParam("price") int pPrice, @QueryParam("quantity") int pQuantity) {
 		product.addToCart(pName, pPrice, pQuantity);
-		return Response.ok().entity("Item Added Sucessfully to Databse Thank you").build();
+		return Response.ok().entity("Item Added to Databse Thank you").build();
 	}
 	
 	@GET

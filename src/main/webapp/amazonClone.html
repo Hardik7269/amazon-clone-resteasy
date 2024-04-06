@@ -10,8 +10,8 @@
 	integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="homePage.css">
-<script src="homepage-js.js"></script>
-<script src="checkout-js.js"></script>
+<script type="text/javascript" src="js/homepage-js.js"></script>
+<script src="js/checkout-js.js"></script>
 
 </head>
 <body>
@@ -58,8 +58,8 @@
 
 			<div class="cart-link header-link border">
 				<div class="cart-icon">
-					<a href="checkout.html"> <img class="cart-icon"
-						src="Images\cart-icon.png">
+					<a> <img class="cart-icon"
+						src="Images\cart-icon.png" onclick="generateDiv()">
 					</a>
 					<div class="cart-quantity">
 						<p class="cart-quantity-num">0</p>
@@ -117,7 +117,7 @@
 					<div class="product-price p1Price">₹1,40,000</div>
 
 					<div class="product-quantity-container">
-						<select class="quantity1" onchange="cartQuantity()">
+						<select class="quantity1" id="q1" onchange="cartQuantity()">
 							<option selected value="0">0</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -128,13 +128,8 @@
 
 					<div class="product-spacer"></div>
 
-					<div class="added-to-cart">Added</div>
-
-					<!--  <button class="add-to-cart-button button-primary"
-						onclick="product1()">Add to Cart</button>-->
-						
-						<button class="add-to-cart-button button-primary" onclick="addToCart(event)">Add to Cart</button>
-						
+					<div class="added-to-cart">Added</div>						
+						<button class="add-to-cart-button button-primary" onclick="addToCart(event)">Add to Cart</button>						
 					<br>
 
 
@@ -160,7 +155,7 @@
 					<div class="product-price p2Price">₹ 90,000</div>
 
 					<div class="product-quantity-container">
-						<select class="quantity2" onchange="cartQuantity()">
+						<select class="quantity2" id="q2" onchange="cartQuantity()">
 							<option selected value="0">0</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -199,7 +194,7 @@
 					<div class="product-price p3Price">₹1,43,990</div>
 
 					<div class="product-quantity-container">
-						<select class="quantity3" onchange="cartQuantity()">
+						<select class="quantity3" id="q3" onchange="cartQuantity()">
 							<option selected value="0">0</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
@@ -227,7 +222,7 @@
 						onclick="removeProduct()">Remove Item</button>
 					<br>
 					<button class="add-to-cart-button button-primary updateP3"
-						onclick="upPrItems()">Update Item</button>
+						onclick="updateProductItem()">Update Item</button>
 				</div>
 			</div>
 
