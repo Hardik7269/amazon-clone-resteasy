@@ -10,10 +10,21 @@ public class CartEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int cartNo;
+    
+    @Column
+    private int cartQuantity;
 
-    @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+
+	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
     private List<ProductEntity> products = new ArrayList<>();
 
+	public int getCartQuantity() {
+		return cartQuantity;
+	}
+	
+	public void setCartQuantity(int cartQuantity) {
+		this.cartQuantity = cartQuantity;
+	}
     public int getCartNo() {
         return cartNo;
     }

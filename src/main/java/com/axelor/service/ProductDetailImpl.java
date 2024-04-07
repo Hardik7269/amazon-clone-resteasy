@@ -7,19 +7,33 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.persist.Transactional;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.persistence.EntityManager;
 
 public class ProductDetailImpl implements ProductDetail {
 
+	
+	private static final Map<String, String> categoryMap = new HashMap<>();
+
+	Provider<EntityManager> emProvider;
+    protected final ProductCategory category;
+    protected final CartEntity cart;
+    protected final ProductEntity product;
+    
     @Inject
-    Provider<EntityManager> emProvider;
-
-    private static final Map<String, String> categoryMap = new HashMap<>();
-
-    static {
+    public ProductDetailImpl(Provider<EntityManager> emProvider, ProductCategory category, CartEntity cart,
+    		ProductEntity product) {
+    	this.emProvider = emProvider;
+    	this.category = category;
+    	this.cart = cart;
+    	this.product = product;
+    }
+    
+	static {
         categoryMap.put("LG49\"CurvedUltragear™DualQHDGamingMonitor", "Monitor");
         categoryMap.put("AppleiPhone14ProMax(256GB)-DeepPurple", "Mobile Phone[IOS]");
         categoryMap.put("SamsungGalaxyS23Ultra5G(12GB,512GBStorage)", "Mobile Phone[Android]");
@@ -29,12 +43,10 @@ public class ProductDetailImpl implements ProductDetail {
     public void addToCart(String pName, int pPrice, int pQuantity) {	
         EntityManager em = emProvider.get();
 
-        ProductEntity product = new ProductEntity();
         product.setpName(pName);
         product.setpPrice(pPrice);
         product.setpQuantity(pQuantity);
-
-        ProductCategory category = new ProductCategory();
+        
         if(categoryMap.containsKey(pName)) {
         	category.setName(categoryMap.get(pName));
         }else {
@@ -42,7 +54,6 @@ public class ProductDetailImpl implements ProductDetail {
         }
         category.addProduct(product);
 
-        CartEntity cart = new CartEntity();
         cart.addProduct(product);
 
         em.persist(product);
@@ -80,4 +91,44 @@ public class ProductDetailImpl implements ProductDetail {
         CartEntity cart = em.find(CartEntity.class, cId);
         em.remove(cart);
     }
+
+	@Override
+	@Transactional
+	public void addAllProduct(int q1, int q2, int q3) {
+		EntityManager em = emProvider.get();
+		cart.setCartQuantity(q3+q2+q1);
+		
+		if(q1 != 0) {
+			ProductEntity p = new ProductEntity();
+			p.setCart(cart);
+			p.setpQuantity(q1);
+			p.setpName("Samsung Galaxy S23 Ultra 5G (12GB, 512GB Storage)");
+			p.setpPrice(140000);
+			cart.addProduct(p);
+			em.persist(p);
+		}
+		if(q2 != 0) {
+			ProductEntity p = new ProductEntity();
+			p.setCart(cart);
+			p.setpQuantity(q2);
+			p.setpName("LG 49\" Curved Ultragear™ Dual QHD Gaming Monitor");
+			p.setpPrice(90000);
+			cart.addProduct(p);
+			em.persist(p);
+		}
+		if(q3 != 0) {
+			ProductEntity p = new ProductEntity();
+			p.setCart(cart);
+			p.setpQuantity(q3);
+			p.setpName("Apple iPhone 14 Pro Max (256 GB) - Deep Purple");
+			p.setpPrice(143000);
+			cart.addProduct(p);
+			em.persist(p);
+		}
+		
+		em.persist(cart);
+		
+	}
+    
+    
 }

@@ -41,5 +41,12 @@ public class Redirect {
 		product.removeProductItem(pId);
 		return Response.ok().entity("Removed id : " + pId).build();
 	}
+	
+	@GET
+	@Path("/addAllProduct")
+	public Response addAllProduct(@QueryParam("q1") int q1 ,@QueryParam("q2") int q2 , @QueryParam("q3") int q3){
+		product.addAllProduct(q1, q2, q3);
+		return Response.ok().entity("Thank you for your purchase").build();
+	}
 
 }

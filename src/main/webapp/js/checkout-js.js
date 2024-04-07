@@ -1,7 +1,10 @@
+// Define urlParams as a global variable
+var urlParams;
+
 function generateDivOnLoad(){
     // Parse the URL to get the query parameters
     const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
+    urlParams = new URLSearchParams(queryString);
 
     // Get the values of q1, q2, and q3 from the query parameters
     const q1 = urlParams.get('q1');
@@ -79,3 +82,15 @@ function genDiv(quantity , name , price , image){
     }
     
 }
+
+function buyAllProducts() {
+    var q11 = urlParams.get('q1');
+    var q21 = urlParams.get('q2');
+    var q31 = urlParams.get('q3');
+
+    const url = `http://localhost:8080/Amazon.com/p/addAllProduct?q1=${q11}&q2=${q21}&q3=${q31}`;
+    window.location.href = url;
+}
+
+
+
