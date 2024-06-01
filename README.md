@@ -2,6 +2,15 @@
 
 Welcome to the Amazon Clone project! This repository contains a full-stack e-commerce application inspired by Amazon. The project is built with HTML, CSS, and JavaScript for the frontend, and Java, Google Guice, Hibernate JPA, REST API, and PostgreSQL for the backend.
 
+## Images 📸
+
+### Home Page
+![image](https://github.com/Hardik7269/amazon-clone-resteasy/assets/115152437/653b9ad1-86f0-49cf-9cd7-38d6e0c057a3)
+
+
+### Cart with Added Items
+![image](https://github.com/Hardik7269/amazon-clone-resteasy/assets/115152437/d1c38154-6386-4f5c-a6fb-df5e21a77bde)
+
 ## Technologies Used 🛠️
 
 ### Frontend
@@ -50,12 +59,4 @@ To get started with setting up the project, follow these steps:
    - Use Tomcat Server version 9.0.86 for deploying the application.
    - Configure the server in your IDE and deploy the application.
 
-## Images 📸
-
-### Home Page
-![image](https://github.com/Hardik7269/amazon-clone-resteasy/assets/115152437/653b9ad1-86f0-49cf-9cd7-38d6e0c057a3)
-
-
-### Cart with Added Items
-![image](https://github.com/Hardik7269/amazon-clone-resteasy/assets/115152437/d1c38154-6386-4f5c-a6fb-df5e21a77bde)
 
