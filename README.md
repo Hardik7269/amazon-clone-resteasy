@@ -45,6 +45,10 @@ To get started with setting up the project, follow these steps:
      ```bash
      git clone https://github.com/<your-username>/amazon-clone.git
      ```
+     - Use this command to clone all the branch to your local:
+     ```bash
+     git branch -r | grep -v '\->' | sed "s,\x1B\[[0-9;]*[a-zA-Z],,g" | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+     ```
 
 3. **Import the Maven Project** 💻:
    - Open your preferred IDE (such as IntelliJ IDEA or Eclipse).
