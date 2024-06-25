@@ -2,6 +2,8 @@
 
 Welcome to the Amazon Clone project! This repository contains a full-stack e-commerce application inspired by Amazon. The project is built with HTML, CSS, and JavaScript for the frontend, and Java, Google Guice, Hibernate JPA, REST API, and PostgreSQL for the backend.
 
+### Follow the steps Below to sucessfully run the project locally ⏬⏬⚠️
+
 ## Images 📸
 
 ### Home Page
@@ -9,7 +11,7 @@ Welcome to the Amazon Clone project! This repository contains a full-stack e-com
 
 
 ### Cart with Added Items
-![image](https://github.com/Hardik7269/amazon-clone-resteasy/assets/115152437/d1c38154-6386-4f5c-a6fb-df5e21a77bde)
+![image](https://github.com/Hardik7269/amazon-clone-resteasy/assets/115152437/d1c38154-6386-4f5c-a6fb-df5e21a77bde) 
 
 ## Technologies Used 🛠️
 
@@ -45,7 +47,7 @@ To get started with setting up the project, follow these steps:
      ```bash
      git clone https://github.com/<your-username>/amazon-clone.git
      ```
-     - Use this command to clone all the branch to your local:
+     - ⚠️⚠️ Use this command to clone all the branch to your local and checkout the last branch created for all the features ⚠️⚠️:
      ```bash
      git branch -r | grep -v '\->' | sed "s,\x1B\[[0-9;]*[a-zA-Z],,g" | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
      ```
